@@ -1,7 +1,7 @@
 @extends('layout')
 
 <!-- Don't need closing tag with 2nd argument -->
-@section('title', 'SCRAPS | Recipes')
+@section('title', 'SCRAPS | All Recipes')
 
 @section('main')
   <header style="padding: 8rem;">
@@ -12,13 +12,10 @@
   <!-- NAV -->
   <ul class="nav nav-pills nav-fill" style="background-color: #e9ecef;border-radius:5px;">
     <li class="nav-item">
-        <a class="nav-link active" href="/recipes">Recipes</a>
+        <a class="nav-link active" href="/recipes">All Recipes</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="/create">Add Recipe</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="/convert-units">Convert Units</a>
     </li>
   </ul><br/>
 
@@ -78,7 +75,7 @@
         </td>
         <td>
           <a href="/recipes/{{$recipe->recipe_id}}/edit" class="btn btn-secondary">Edit</a>
-          <a href="/recipes/{{$recipe->recipe_id}}/delete" class="btn btn-outline-secondary">Delete</a>
+          <a onclick="return confirm('Are you sure you want to delete {{$recipe->Title}}?');" href="/recipes/{{$recipe->recipe_id}}/delete" class="btn btn-outline-secondary">Delete</a>
         </td>
       </tr>
       @empty
