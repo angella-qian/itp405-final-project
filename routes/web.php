@@ -5,11 +5,11 @@
 Route::get('/signup', 'SignUpController@index');
 Route::post('/signup', 'SignUpController@signup');
 
-Route::get('/', 'LoginController@index');
 Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@login');
 Route::get('/logout', 'LoginController@logout');
 
+Route::get('/', 'RecipesController@index');
 Route::get('/recipes', 'RecipesController@index');
 
 Route::get('/details', 'DetailsController@index');
