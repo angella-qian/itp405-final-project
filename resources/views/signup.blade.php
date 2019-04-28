@@ -16,6 +16,7 @@
     <div class="form-group">
       <label for="email">Email</label>
       <input type="email" id="email" name="email" class="form-control">
+      <small class="text-danger">{{$errors->first('email')}}</small>
     </div>
     <div class="form-group">
       <label for="password">Password</label>

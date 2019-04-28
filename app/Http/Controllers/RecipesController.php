@@ -147,7 +147,7 @@ class RecipesController extends Controller
 
         // Otherwise, insert the recipe in the database
         // Insert when 19 ingredients provided
-        if ($request->unit19) {
+        else if ($request->unit19) {
             DB::table('recipes')->insert([
                 'Title' => $request->title,
                 'category_id' => $request->categories,

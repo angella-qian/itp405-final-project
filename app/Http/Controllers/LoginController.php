@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use Session;
 
 class LoginController extends Controller
 {
@@ -19,11 +20,8 @@ class LoginController extends Controller
     		'password' => request('password')
     	]);
 
-        var_dump($loginWasSuccessful);
-
     	if ($loginWasSuccessful) {
-            Session::put('user', Auth::user());
-    		return redirect('/recipes');
+            return redirect('/recipes');
     	} else {
     		return redirect('/login');
     	}
@@ -31,6 +29,7 @@ class LoginController extends Controller
 
     public function logout() {
     	Auth::logout();
+        // Session::forget('user');
     	return redirect('/login');
     }
 }

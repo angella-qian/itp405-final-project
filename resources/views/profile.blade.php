@@ -22,7 +22,7 @@
         <a class="nav-link active" href="/profile">Profile</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" href="/logout">Logout</a>
+        <a class="nav-link" href="/logout">Logout</a>
     </li>
     @else
     <li class="nav-item">
@@ -35,7 +35,7 @@
   </ul><br/>
 
   <h2 class="text-center">Good to see you!</h2>
-  <p class="text-center">Your email address is {{$user}}.</p>
+  <p class="text-center">The email you've signed up with is&nbsp;&nbsp;<strong>{{$user->email}}</strong>.</p>
 
 
  @endsection
