@@ -5,7 +5,7 @@
 
 @section('main')
   <header style="padding: 8rem;">
-    <h1 class="text-center"><strong><a href="/" style="text-decoration:none;font-size:1.25em;">{ s c r a p s }</a></strong></h1>
+    <h1 class="text-center"><strong><a href="/recipes" style="text-decoration:none;font-size:1.25em;">{ s c r a p s }</a></strong></h1>
     <h5 class="text-center">quick & easy recipes for students!</h5>
   </header>
 
@@ -17,6 +17,21 @@
     <li class="nav-item">
         <a class="nav-link" href="/create">Add Recipe</a>
     </li>
+    @if (Auth::check())
+    <li class="nav-item">
+        <a class="nav-link active" href="/profile">Profile</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="/logout">Logout</a>
+    </li>
+    @else
+    <li class="nav-item">
+        <a class="nav-link" href="/signup">Create Account</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/login">Login</a>
+    </li>
+    @endif
   </ul><br/>
 
   <form class="form-inline" action="/recipes/" method="GET" style="margin-bottom:1rem;">
@@ -60,7 +75,10 @@
       <th>Category</th>
       <th>Total Time</th>
       <th>Directions & Ingredients</th>
+      @if (Auth::check())
       <th>Update Recipe</th>
+      @else
+      @endif
     </tr>
   </thead>
 
@@ -73,10 +91,13 @@
         <td>
           <a href="/details?id={{$recipe->recipe_id}}" class="btn btn-outline-secondary">View Details</a>
         </td>
+        @if (Auth::check())
         <td>
           <a href="/recipes/{{$recipe->recipe_id}}/edit" class="btn btn-secondary">Edit</a>
           <a onclick="return confirm('Are you sure you want to delete {{$recipe->Title}}?');" href="/recipes/{{$recipe->recipe_id}}/delete" class="btn btn-outline-secondary">Delete</a>
         </td>
+        @else
+        @endif
       </tr>
       @empty
       <tr>

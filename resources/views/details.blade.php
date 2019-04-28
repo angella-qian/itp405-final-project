@@ -5,7 +5,7 @@
 
 @section('main')
   <br/><br/><br/>
-  <h1 class="text-center"><strong><a href="/" style="text-decoration:none;font-size:1.25em;">{ s c r a p s }</a></strong></h1>
+  <h1 class="text-center"><strong><a href="/recipes" style="text-decoration:none;font-size:1.25em;">{ s c r a p s }</a></strong></h1>
   <h5 class="text-center">quick & easy recipes for students!</h5>
   <br/><br/><br/><br/>
 
@@ -17,6 +17,21 @@
     <li class="nav-item">
         <a class="nav-link" href="/create">Add Recipe</a>
     </li>
+    @if (Auth::check())
+    <li class="nav-item">
+        <a class="nav-link active" href="/profile">Profile</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="/logout">Logout</a>
+    </li>
+    @else
+    <li class="nav-item">
+        <a class="nav-link" href="/signup">Create Account</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/login">Login</a>
+    </li>
+    @endif
   </ul><br/>
 
   <h3 class="text-center bg-dark text-white p-2" style="margin:1rem 0;border-radius:5px;">{{$recipe->Title}}</h3>
@@ -175,6 +190,7 @@
         {{$recipe->Directions}}
       </td>
     </tr>
+    @if (Auth::check())
     <tr class="bg-light">
       <th colspan="2">Manage Recipe</th>
     </tr>
@@ -184,6 +200,8 @@
         <a onclick="return confirm('Are you sure you want to delete {{$recipe->Title}}?');" href="/recipes/{{$recipe->recipe_id}}/delete" class="btn btn-outline-secondary">Delete</a>
       </td>
     </tr>
+    @else
+    @endif
   </table><br/>
 
 

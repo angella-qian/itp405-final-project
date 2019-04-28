@@ -5,7 +5,7 @@
 @section('main')
 
   <header style="padding: 8rem;">
-    <h1 class="text-center"><strong><a href="/" style="text-decoration:none;font-size:1.25em;">{ s c r a p s }</a></strong></h1>
+    <h1 class="text-center"><strong><a href="/recipes" style="text-decoration:none;font-size:1.25em;">{ s c r a p s }</a></strong></h1>
     <h5 class="text-center">quick & easy recipes for students!</h5>
   </header>
 
@@ -17,6 +17,21 @@
     <li class="nav-item">
         <a class="nav-link" href="/create">Add Recipe</a>
     </li>
+    @if (Auth::check())
+    <li class="nav-item">
+        <a class="nav-link active" href="/profile">Profile</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="/logout">Logout</a>
+    </li>
+    @else
+    <li class="nav-item">
+        <a class="nav-link" href="/signup">Create Account</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/login">Login</a>
+    </li>
+    @endif
   </ul><br/>
 
   <header class="text-center p-2 mb-4">
