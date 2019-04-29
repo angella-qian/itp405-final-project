@@ -10,7 +10,7 @@
   </header><hr/>
 
   <h2 class="text-center">Welcome back!</h2>
-  <p class="text-center">Don't have an account? <a href="/signup">Sign up here</a>.</p>
+  <p class="text-center">Don't have an account? <a href="/signup">Sign up</a> so you can create, edit, and delete recipes.</p>
   <form method="post">
     @csrf
     <div class="form-group">

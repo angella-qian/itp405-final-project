@@ -14,10 +14,10 @@
     <li class="nav-item">
         <a class="nav-link" href="/recipes">All Recipes</a>
     </li>
+    @if (Auth::check())
     <li class="nav-item">
         <a class="nav-link" href="/create">Add Recipe</a>
     </li>
-    @if (Auth::check())
     <li class="nav-item">
         <a class="nav-link" href="/profile">Profile</a>
     </li>
