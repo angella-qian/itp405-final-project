@@ -1,7 +1,7 @@
 @extends('layout')
 
 <!-- Don't need closing tag with 2nd argument -->
-@section('title', 'SCRAPS | Login')
+@section('title', 'SCRAPS | Profile')
 
 @section('main')
   <header style="padding: 8rem;">
