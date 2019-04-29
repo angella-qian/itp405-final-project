@@ -21,6 +21,7 @@
     <div class="form-group">
       <label for="password">Password</label>
       <input type="password" id="password" name="password" class="form-control">
+      <small class="text-danger">{{$errors->first('password')}}</small>
     </div>
     <input type="submit" value="Sign Up" class="btn btn-primary">
   </form>
